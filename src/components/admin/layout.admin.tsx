@@ -39,83 +39,126 @@ const LayoutAdmin = () => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        if (permissions?.length) {
-            const viewCompany = permissions.find(item =>
-                item.apiPath === ALL_PERMISSIONS.COMPANIES.GET_PAGINATE.apiPath
-                && item.method === ALL_PERMISSIONS.COMPANIES.GET_PAGINATE.method
-            )
+        // Check if user is SUPER_ADMIN - bypass permission check
+        const isSuperAdmin = user?.role?.name === 'SUPER_ADMIN';
+        
+        if (isSuperAdmin || permissions?.length) {
+            // If SUPER_ADMIN, show all menu items
+            if (isSuperAdmin) {
+                const full = [
+                    {
+                        label: <Link to='/admin'>Dashboard</Link>,
+                        key: '/admin',
+                        icon: <AppstoreOutlined />
+                    },
+                    {
+                        label: <Link to='/admin/company'>Company</Link>,
+                        key: '/admin/company',
+                        icon: <BankOutlined />,
+                    },
+                    {
+                        label: <Link to='/admin/user'>User</Link>,
+                        key: '/admin/user',
+                        icon: <UserOutlined />
+                    },
+                    {
+                        label: <Link to='/admin/job'>Job</Link>,
+                        key: '/admin/job',
+                        icon: <ScheduleOutlined />
+                    },
+                    {
+                        label: <Link to='/admin/resume'>Resume</Link>,
+                        key: '/admin/resume',
+                        icon: <AliwangwangOutlined />
+                    },
+                    {
+                        label: <Link to='/admin/permission'>Permission</Link>,
+                        key: '/admin/permission',
+                        icon: <ApiOutlined />
+                    },
+                    {
+                        label: <Link to='/admin/role'>Role</Link>,
+                        key: '/admin/role',
+                        icon: <ExceptionOutlined />
+                    },
+                ];
+                setMenuItems(full);
+            } else {
+                // Check permissions for non-SUPER_ADMIN users
+                const viewCompany = permissions.find(item =>
+                    item.apiPath === ALL_PERMISSIONS.COMPANIES.GET_PAGINATE.apiPath
+                    && item.method === ALL_PERMISSIONS.COMPANIES.GET_PAGINATE.method
+                )
 
-            const viewUser = permissions.find(item =>
-                item.apiPath === ALL_PERMISSIONS.USERS.GET_PAGINATE.apiPath
-                && item.method === ALL_PERMISSIONS.USERS.GET_PAGINATE.method
-            )
+                const viewUser = permissions.find(item =>
+                    item.apiPath === ALL_PERMISSIONS.USERS.GET_PAGINATE.apiPath
+                    && item.method === ALL_PERMISSIONS.USERS.GET_PAGINATE.method
+                )
 
-            const viewJob = permissions.find(item =>
-                item.apiPath === ALL_PERMISSIONS.JOBS.GET_PAGINATE.apiPath
-                && item.method === ALL_PERMISSIONS.JOBS.GET_PAGINATE.method
-            )
+                const viewJob = permissions.find(item =>
+                    item.apiPath === ALL_PERMISSIONS.JOBS.GET_PAGINATE.apiPath
+                    && item.method === ALL_PERMISSIONS.JOBS.GET_PAGINATE.method
+                )
 
-            const viewResume = permissions.find(item =>
-                item.apiPath === ALL_PERMISSIONS.RESUMES.GET_PAGINATE.apiPath
-                && item.method === ALL_PERMISSIONS.RESUMES.GET_PAGINATE.method
-            )
+                const viewResume = permissions.find(item =>
+                    item.apiPath === ALL_PERMISSIONS.RESUMES.GET_PAGINATE.apiPath
+                    && item.method === ALL_PERMISSIONS.RESUMES.GET_PAGINATE.method
+                )
 
-            const viewRole = permissions.find(item =>
-                item.apiPath === ALL_PERMISSIONS.ROLES.GET_PAGINATE.apiPath
-                && item.method === ALL_PERMISSIONS.ROLES.GET_PAGINATE.method
-            )
+                const viewRole = permissions.find(item =>
+                    item.apiPath === ALL_PERMISSIONS.ROLES.GET_PAGINATE.apiPath
+                    && item.method === ALL_PERMISSIONS.ROLES.GET_PAGINATE.method
+                )
 
-            const viewPermission = permissions.find(item =>
-                item.apiPath === ALL_PERMISSIONS.PERMISSIONS.GET_PAGINATE.apiPath
-                && item.method === ALL_PERMISSIONS.USERS.GET_PAGINATE.method
-            )
+                const viewPermission = permissions.find(item =>
+                    item.apiPath === ALL_PERMISSIONS.PERMISSIONS.GET_PAGINATE.apiPath
+                    && item.method === ALL_PERMISSIONS.PERMISSIONS.GET_PAGINATE.method
+                )
 
-            const full = [
-                {
-                    label: <Link to='/admin'>Dashboard</Link>,
-                    key: '/admin',
-                    icon: <AppstoreOutlined />
-                },
-                ...(viewCompany ? [{
-                    label: <Link to='/admin/company'>Company</Link>,
-                    key: '/admin/company',
-                    icon: <BankOutlined />,
-                }] : []),
+                const full = [
+                    {
+                        label: <Link to='/admin'>Dashboard</Link>,
+                        key: '/admin',
+                        icon: <AppstoreOutlined />
+                    },
+                    ...(viewCompany ? [{
+                        label: <Link to='/admin/company'>Company</Link>,
+                        key: '/admin/company',
+                        icon: <BankOutlined />,
+                    }] : []),
 
-                ...(viewUser ? [{
-                    label: <Link to='/admin/user'>User</Link>,
-                    key: '/admin/user',
-                    icon: <UserOutlined />
-                }] : []),
-                ...(viewJob ? [{
-                    label: <Link to='/admin/job'>Job</Link>,
-                    key: '/admin/job',
-                    icon: <ScheduleOutlined />
-                }] : []),
+                    ...(viewUser ? [{
+                        label: <Link to='/admin/user'>User</Link>,
+                        key: '/admin/user',
+                        icon: <UserOutlined />
+                    }] : []),
+                    ...(viewJob ? [{
+                        label: <Link to='/admin/job'>Job</Link>,
+                        key: '/admin/job',
+                        icon: <ScheduleOutlined />
+                    }] : []),
 
-                ...(viewResume ? [{
-                    label: <Link to='/admin/resume'>Resume</Link>,
-                    key: '/admin/resume',
-                    icon: <AliwangwangOutlined />
-                }] : []),
-                ...(viewPermission ? [{
-                    label: <Link to='/admin/permission'>Permission</Link>,
-                    key: '/admin/permission',
-                    icon: <ApiOutlined />
-                }] : []),
-                ...(viewRole ? [{
-                    label: <Link to='/admin/role'>Role</Link>,
-                    key: '/admin/role',
-                    icon: <ExceptionOutlined />
-                }] : []),
+                    ...(viewResume ? [{
+                        label: <Link to='/admin/resume'>Resume</Link>,
+                        key: '/admin/resume',
+                        icon: <AliwangwangOutlined />
+                    }] : []),
+                    ...(viewPermission ? [{
+                        label: <Link to='/admin/permission'>Permission</Link>,
+                        key: '/admin/permission',
+                        icon: <ApiOutlined />
+                    }] : []),
+                    ...(viewRole ? [{
+                        label: <Link to='/admin/role'>Role</Link>,
+                        key: '/admin/role',
+                        icon: <ExceptionOutlined />
+                    }] : []),
+                ];
 
-
-
-            ];
-
-            setMenuItems(full);
+                setMenuItems(full);
+            }
         }
-    }, [permissions])
+    }, [permissions, user?.role?.name])
     useEffect(() => {
         setActiveMenu(location.pathname)
     }, [location])

@@ -14,9 +14,18 @@ const Access = (props: IProps) => {
     const [allow, setAllow] = useState<boolean>(true);
 
     const permissions = useAppSelector(state => state.account.user.permissions);
+    const user = useAppSelector(state => state.account.user);
 
     useEffect(() => {
-        if (permissions.length) {
+        // Check if user is SUPER_ADMIN - bypass permission check
+        const isSuperAdmin = user?.role?.name === 'SUPER_ADMIN';
+        
+        if (isSuperAdmin) {
+            setAllow(true);
+            return;
+        }
+
+        if (permissions && permissions.length) {
             const check = permissions.find(item =>
                 item.apiPath === permission.apiPath
                 && item.method === permission.method
@@ -24,10 +33,13 @@ const Access = (props: IProps) => {
             )
             if (check) {
                 setAllow(true)
-            } else
+            } else {
                 setAllow(false);
+            }
+        } else {
+            setAllow(false);
         }
-    }, [permissions])
+    }, [permissions, user?.role?.name, permission])
 
     return (
         <>
