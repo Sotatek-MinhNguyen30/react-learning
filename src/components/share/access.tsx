@@ -26,10 +26,11 @@ const Access = (props: IProps) => {
         }
 
         if (permissions && permissions.length) {
+            // Nới lỏng điều kiện: chỉ cần cùng module + method là được,
+            // bỏ qua apiPath để tránh lệch dữ liệu giữa FE config và BE
             const check = permissions.find(item =>
-                item.apiPath === permission.apiPath
-                && item.method === permission.method
-                && item.module === permission.module
+                item.method === permission.method &&
+                item.module === permission.module
             )
             if (check) {
                 setAllow(true)

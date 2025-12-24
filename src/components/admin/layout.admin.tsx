@@ -21,7 +21,7 @@ import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { isMobile } from 'react-device-detect';
 import type { MenuProps } from 'antd';
 import { setLogoutAction } from '@/redux/slice/accountSlide';
-import { ALL_PERMISSIONS } from '@/config/permissions';
+import { ALL_PERMISSIONS, ALL_MODULES } from '@/config/permissions';
 
 const { Content, Footer, Sider } = Layout;
 
@@ -85,34 +85,29 @@ const LayoutAdmin = () => {
                 setMenuItems(full);
             } else {
                 // Check permissions for non-SUPER_ADMIN users
+                // Chỉ cần user có bất kỳ quyền GET trên module tương ứng là hiển thị menu
                 const viewCompany = permissions.find(item =>
-                    item.apiPath === ALL_PERMISSIONS.COMPANIES.GET_PAGINATE.apiPath
-                    && item.method === ALL_PERMISSIONS.COMPANIES.GET_PAGINATE.method
+                    item.module === ALL_MODULES.COMPANIES && item.method === 'GET'
                 )
 
                 const viewUser = permissions.find(item =>
-                    item.apiPath === ALL_PERMISSIONS.USERS.GET_PAGINATE.apiPath
-                    && item.method === ALL_PERMISSIONS.USERS.GET_PAGINATE.method
+                    item.module === ALL_MODULES.USERS && item.method === 'GET'
                 )
 
                 const viewJob = permissions.find(item =>
-                    item.apiPath === ALL_PERMISSIONS.JOBS.GET_PAGINATE.apiPath
-                    && item.method === ALL_PERMISSIONS.JOBS.GET_PAGINATE.method
+                    item.module === ALL_MODULES.JOBS && item.method === 'GET'
                 )
 
                 const viewResume = permissions.find(item =>
-                    item.apiPath === ALL_PERMISSIONS.RESUMES.GET_PAGINATE.apiPath
-                    && item.method === ALL_PERMISSIONS.RESUMES.GET_PAGINATE.method
+                    item.module === ALL_MODULES.RESUMES && item.method === 'GET'
                 )
 
                 const viewRole = permissions.find(item =>
-                    item.apiPath === ALL_PERMISSIONS.ROLES.GET_PAGINATE.apiPath
-                    && item.method === ALL_PERMISSIONS.ROLES.GET_PAGINATE.method
+                    item.module === ALL_MODULES.ROLES && item.method === 'GET'
                 )
 
                 const viewPermission = permissions.find(item =>
-                    item.apiPath === ALL_PERMISSIONS.PERMISSIONS.GET_PAGINATE.apiPath
-                    && item.method === ALL_PERMISSIONS.PERMISSIONS.GET_PAGINATE.method
+                    item.module === ALL_MODULES.PERMISSIONS && item.method === 'GET'
                 )
 
                 const full = [

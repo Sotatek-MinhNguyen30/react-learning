@@ -62,13 +62,11 @@ export const resumeSlide = createSlice({
 
         builder.addCase(fetchResume.fulfilled, (state, action) => {
             if (action.payload && action.payload.data) {
-                state.isFetching = false;
                 state.meta = action.payload.data.meta;
                 state.result = action.payload.data.result;
             }
-            // Add user to the state array
-
-            // state.courseOrder = action.payload;
+            // Dù thành công hay lỗi (không có data), cũng phải tắt trạng thái loading
+            state.isFetching = false;
         })
     },
 
