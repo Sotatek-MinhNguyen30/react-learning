@@ -1,218 +1,218 @@
-# 💼 Hệ Thống Quản Lý Tuyển Dụng (Job Recruitment Management System)
+# 💼 Job Recruitment Management System
 
-Đây là một ứng dụng web hiện đại xây dựng bằng **React + TypeScript + Vite**, được thiết kế để quản lý quy trình tuyển dụng, công ty, và ứng viên.
+A modern web application built with **React + TypeScript + Vite**, designed to manage the recruitment process, companies, and candidates.
 
-## 📋 Mục Lục
-- [Giới Thiệu](#giới-thiệu)
-- [Tính Năng Chính](#tính-năng-chính)
-- [Yêu Cầu Hệ Thống](#yêu-cầu-hệ-thống)
-- [Cài Đặt](#cài-đặt)
-- [Hướng Dẫn Sử Dụng](#hướng-dẫn-sử-dụng)
-- [Tài Khoản Demo](#tài-khoản-demo)
-- [Cấu Trúc Dự Án](#cấu-trúc-dự-án)
-
----
-
-## 🎯 Giới Thiệu
-
-Hệ thống quản lý tuyển dụng là một nền tảng toàn diện dành cho các công ty và nhà tuyển dụng để:
-- 📝 Đăng tuyển vị trí công việc
-- 👥 Quản lý ứng viên và hồ sơ
-- 🏢 Quản lý thông tin công ty
-- 🔐 Quản lý quyền hạn và vai trò người dùng
-- 📊 Xem dashboard thống kê
+## 📋 Table of Contents
+- [Introduction](#introduction)
+- [Key Features](#key-features)
+- [System Requirements](#system-requirements)
+- [Installation](#installation)
+- [Usage Guide](#usage-guide)
+- [Demo Accounts](#demo-accounts)
+- [Project Structure](#project-structure)
 
 ---
 
-## ✨ Tính Năng Chính
+## 🎯 Introduction
 
-### 👤 Cho Ứng Viên (Client)
-- **Trang Chủ**: Xem các công việc nổi bật và công ty hàng đầu
-- **Tìm Kiếm Công Việc**: Tìm kiếm, lọc công việc theo kỹ năng, vị trí, lương
-- **Chi Tiết Công Việc**: Xem thông tin chi tiết công việc và ứng tuyển
-- **Danh Sách Công Ty**: Xem danh sách công ty và thông tin chi tiết
-- **Quản Lý Hồ Sơ**: Quản lý hồ sơ cá nhân
-
-### 🛠️ Cho Quản Trị Viên (Admin)
-- **Dashboard**: Xem thống kê tổng quan hệ thống
-- **Quản Lý Công Ty**: 
-  - Thêm, sửa, xóa công ty
-  - Quản lý logo và thông tin chi tiết
-- **Quản Lý Công Việc**: 
-  - Đăng tuyển vị trí mới
-  - Sửa, xóa, kích hoạt/vô hiệu hóa công việc
-  - Quản lý kỹ năng yêu cầu
-- **Quản Lý Người Dùng**: 
-  - Thêm, sửa, xóa tài khoản
-  - Gán vai trò và công ty
-- **Quản Lý Hồ Sơ**: 
-  - Xem hồ sơ ứng viên
-  - Cập nhật trạng thái hồ sơ
-  - Xem lịch sử cập nhật
-- **Quản Lý Vai Trò**: 
-  - Tạo vai trò mới
-  - Gán quyền hạn cho từng vai trò
-- **Quản Lý Quyền Hạn**: 
-  - Quản lý các module và quyền CRUD
+The recruitment management system is a comprehensive platform for companies and recruiters to:
+- 📝 Post job openings
+- 👥 Manage candidates and resumes
+- 🏢 Manage company information
+- 🔐 Manage user roles and permissions
+- 📊 View statistics dashboards
 
 ---
 
-## 💻 Yêu Cầu Hệ Thống
+## ✨ Key Features
 
-- **Node.js**: v14.0 trở lên
-- **npm**: v6.0 trở lên hoặc **yarn**
-- **Backend**: NestJS API chạy trên `https://react-learning-lime.vercel.app/` (theo file `.env.development`)
+### 👤 For Candidates (Client)
+- **Home Page**: View featured jobs and top companies
+- **Job Search**: Search and filter jobs by skills, location, salary
+- **Job Details**: View detailed job information and apply
+- **Company List**: Browse the list of companies and their details
+- **Profile Management**: Manage your personal profile
+
+### 🛠️ For Administrators (Admin)
+- **Dashboard**: View overall system statistics
+- **Company Management**:
+  - Add, edit, delete companies
+  - Manage logos and detailed information
+- **Job Management**:
+  - Post new job openings
+  - Edit, delete, activate/deactivate jobs
+  - Manage required skills
+- **User Management**:
+  - Add, edit, delete accounts
+  - Assign roles and companies
+- **Resume Management**:
+  - View candidate resumes
+  - Update resume status
+  - View status update history
+- **Role Management**:
+  - Create new roles
+  - Assign permissions to each role
+- **Permission Management**:
+  - Manage modules and CRUD permissions
 
 ---
 
-## 📖 Hướng Dẫn Sử Dụng
+## 💻 System Requirements
 
-### 🔑 Đăng Nhập
+- **Node.js**: v14.0 or higher
+- **npm**: v6.0 or higher, or **yarn**
+- **Backend**: NestJS API running on `https://react-learning-lime.vercel.app/` (as configured in `.env.development`)
 
-1. Truy cập trang **https://react-learning-lime.vercel.app/login**
-2. Nhập **Email** (tên đăng nhập)
-3. Nhập **Mật khẩu**
-4. Nhấn **Đăng Nhập**
+---
 
-### 🏠 Trang Chủ Ứng Viên
-- Xem các công việc nổi bật và công ty
-- Sử dụng thanh tìm kiếm để tìm công việc
-- Click vào công việc để xem chi tiết và ứng tuyển
+## 📖 Usage Guide
 
-### 🔍 Tìm Kiếm Công Việc
-- **Đường dẫn**: `/job`
-- Tìm kiếm theo: Tên công việc, kỹ năng, vị trí, mức lương
-- Xem danh sách công việc theo trang
-- Click vào công việc để xem chi tiết
+### 🔑 Login
 
-### 🏢 Danh Sách Công Ty
-- **Đường dẫn**: `/company`
-- Xem thông tin công ty và danh sách công việc đang tuyển
+1. Go to **https://react-learning-lime.vercel.app/login**
+2. Enter your **Email** (used as the username)
+3. Enter your **Password**
+4. Click **Login**
 
-### 👨‍💼 Khu Vực Admin
-- **Đường dẫn**: `/admin`
-- Chỉ có thể truy cập khi có quyền admin
-- Nếu không có quyền, sẽ được chuyển hướng đến trang "Not Permitted"
+### 🏠 Candidate Home Page
+- View featured jobs and companies
+- Use the search bar to find jobs
+- Click on a job to view details and apply
+
+### 🔍 Job Search
+- **Path**: `/job`
+- Search by: job title, skills, location, salary
+- Browse the paginated job list
+- Click on a job to view details
+
+### 🏢 Company List
+- **Path**: `/company`
+- View company information and their currently open positions
+
+### 👨‍💼 Admin Area
+- **Path**: `/admin`
+- Accessible only to users with admin permissions
+- Users without permission are redirected to a "Not Permitted" page
 
 #### 📊 Dashboard
-- Xem thống kê tổng quan
-- Xem số liệu chính về công việc, ứng viên, công ty
+- View overall statistics
+- View key metrics on jobs, candidates, and companies
 
-#### 🏢 Quản Lý Công Ty (`/admin/company`)
-- **Thêm**: Click nút "Thêm Mới", điền thông tin, upload logo
-- **Sửa**: Click biểu tượng sửa, cập nhật thông tin
-- **Xóa**: Click biểu tượng xóa để xóa công ty
-- Xem danh sách tất cả công ty
+#### 🏢 Company Management (`/admin/company`)
+- **Add**: Click "Add New", fill in the details, upload a logo
+- **Edit**: Click the edit icon, update the information
+- **Delete**: Click the delete icon to remove a company
+- View the full list of companies
 
-#### 👔 Quản Lý Công Việc (`/admin/job`)
-- **Xem Danh Sách**: Danh sách tất cả công việc
-- **Thêm Mới**: `/admin/job/upsert` - Tạo công việc mới
-  - Nhập tên công việc
-  - Chọn công ty
-  - Nhập vị trí làm việc
-  - Nhập mức lương
-  - Chọn level (Junior, Middle, Senior, etc.)
-  - Thêm kỹ năng yêu cầu
-  - Nhập mô tả chi tiết
-  - Chọn ngày bắt đầu và kết thúc
-- **Sửa**: Click biểu tượng sửa để chỉnh sửa
-- **Xóa**: Click biểu tượng xóa để xóa công việc
+#### 👔 Job Management (`/admin/job`)
+- **View List**: List of all jobs
+- **Add New**: `/admin/job/upsert` — Create a new job
+  - Enter the job title
+  - Select the company
+  - Enter the work location
+  - Enter the salary
+  - Select the level (Junior, Middle, Senior, etc.)
+  - Add required skills
+  - Enter a detailed description
+  - Select start and end dates
+- **Edit**: Click the edit icon to modify
+- **Delete**: Click the delete icon to remove the job
 
-#### 👥 Quản Lý Người Dùng (`/admin/user`)
-- Xem danh sách tất cả người dùng
-- **Thêm Người Dùng**:
-  - Nhập email (tên đăng nhập)
-  - Nhập mật khẩu
-  - Nhập tên, tuổi, giới tính
-  - Nhập địa chỉ
-  - Chọn vai trò
-  - Chọn công ty
-- **Sửa**: Cập nhật thông tin người dùng
-- **Xóa**: Xóa tài khoản người dùng
+#### 👥 User Management (`/admin/user`)
+- View the list of all users
+- **Add User**:
+  - Enter email (used as the username)
+  - Enter password
+  - Enter name, age, gender
+  - Enter address
+  - Select role
+  - Select company
+- **Edit**: Update user information
+- **Delete**: Remove a user account
 
-#### 📄 Quản Lý Hồ Sơ Ứng Viên (`/admin/resume`)
-- Xem danh sách hồ sơ ứng tuyển
-- **Cập Nhật Trạng Thái**:
-  - Click vào hồ sơ để xem chi tiết
-  - Cập nhật trạng thái: Chờ xử lý, Duyệt, Từ chối, v.v.
-  - Xem lịch sử cập nhật trạng thái
+#### 📄 Candidate Resume Management (`/admin/resume`)
+- View the list of submitted resumes
+- **Update Status**:
+  - Click on a resume to view details
+  - Update status: Pending, Approved, Rejected, etc.
+  - View the status update history
 
-#### 🔐 Quản Lý Vai Trò (`/admin/role`)
-- Xem danh sách vai trò có sẵn (Admin, HR, User, v.v.)
-- **Thêm Vai Trò**:
-  - Nhập tên vai trò
-  - Nhập mô tả
-  - Chọn trạng thái (Kích hoạt/Vô hiệu hóa)
-- **Gán Quyền**:
-  - Click "Phân Quyền" hoặc biểu tượng quyền
-  - Chọn các module: Companies, Jobs, Users, Resumes, Roles, Permissions
-  - Chọn quyền cho từng module: GET, POST, PATCH, DELETE
-  - Lưu quyền
+#### 🔐 Role Management (`/admin/role`)
+- View the list of available roles (Admin, HR, User, etc.)
+- **Add Role**:
+  - Enter the role name
+  - Enter a description
+  - Select the status (Active/Inactive)
+- **Assign Permissions**:
+  - Click "Assign Permissions" or the permissions icon
+  - Select modules: Companies, Jobs, Users, Resumes, Roles, Permissions
+  - Select permissions for each module: GET, POST, PATCH, DELETE
+  - Save the permissions
 
-#### 🔒 Quản Lý Quyền Hạn (`/admin/permission`)
-- Xem danh sách tất cả quyền hạn
-- Mỗi quyền bao gồm:
-  - **Module**: Loại dữ liệu (Companies, Jobs, Users, v.v.)
+#### 🔒 Permission Management (`/admin/permission`)
+- View the list of all permissions
+- Each permission includes:
+  - **Module**: Data type (Companies, Jobs, Users, etc.)
   - **Method**: GET, POST, PATCH, DELETE
-  - **API Path**: Đường dẫn API
+  - **API Path**: The API route
 
 ---
 
-## 🔐 Tài Khoản Demo
+## 🔐 Demo Accounts
 
-Hệ thống cung cấp các tài khoản demo để kiểm thử:
+The system provides demo accounts for testing:
 
-| Email | Vai Trò | Mật Khẩu | Chức Năng |
-|-------|---------|----------|----------|
-| `admin@gmail.com` | Admin | `123456` | Quyền truy cập tất cả (admin panel) |
-| `hr@gmail.com` | HR Manager | `123456` | Quản lý công việc, ứng viên, nhân sự |
-| `user@gmail.com` | User | `123456` | Ứng viên - Tìm kiếm công việc, ứng tuyển |
-| `abc@gmail.com` | User | `123456` | Ứng viên - Tìm kiếm công việc, ứng tuyển |
+| Email | Role | Password | Function |
+|-------|------|----------|----------|
+| `admin@gmail.com` | Admin | `123456` | Full access (admin panel) |
+| `hr@gmail.com` | HR Manager | `123456` | Manage jobs, candidates, HR |
+| `user@gmail.com` | User | `123456` | Candidate — search and apply for jobs |
+| `abc@gmail.com` | User | `123456` | Candidate — search and apply for jobs |
 
-### Hướng Dẫn Đăng Nhập
-1. Truy cập: **https://react-learning-lime.vercel.app/login**
-2. Nhập email (ví dụ: `admin@gmail.com`)
-3. Nhập mật khẩu: `123456`
-4. Click "Đăng Nhập"
+### Login Instructions
+1. Go to: **https://react-learning-lime.vercel.app/login**
+2. Enter the email (e.g., `admin@gmail.com`)
+3. Enter the password: `123456`
+4. Click "Login"
 
-### Hướng Dẫn Đăng Ký Tài Khoản Mới
-1. Truy cập: **https://react-learning-lime.vercel.app/register**
-2. Nhập thông tin:
-   - Tên đầy đủ
-   - Email (sẽ được dùng làm tên đăng nhập)
-   - Mật khẩu
-   - Tuổi, Giới tính, Địa chỉ
-3. Click "Đăng Ký"
-4. Sử dụng tài khoản mới để đăng nhập
+### New Account Registration Instructions
+1. Go to: **https://react-learning-lime.vercel.app/register**
+2. Enter the information:
+   - Full name
+   - Email (will be used as the username)
+   - Password
+   - Age, Gender, Address
+3. Click "Register"
+4. Use the new account to log in
 
 ---
 
-## 📁 Cấu Trúc Dự Án
+## 📁 Project Structure
 
 ```
 src/
-├── components/          # Các component React
-│   ├── admin/          # Components cho admin panel
-│   │   ├── company/    # Quản lý công ty
-│   │   ├── job/        # Quản lý công việc
-│   │   ├── user/       # Quản lý người dùng
-│   │   ├── resume/     # Quản lý hồ sơ
-│   │   ├── role/       # Quản lý vai trò
-│   │   └── permission/ # Quản lý quyền
-│   ├── client/         # Components cho client
-│   │   ├── card/       # Thẻ công việc, công ty
-│   │   ├── data-table/ # Bảng dữ liệu
-│   │   └── modal/      # Modal ứng tuyển, quản lý tài khoản
-│   └── share/          # Components dùng chung
-├── config/             # Cấu hình (API, permissions)
-│   ├── api.ts         # Các hàm gọi API
-│   └── permissions.ts # Danh sách quyền hạn
-├── pages/              # Các trang (Pages)
-│   ├── admin/         # Trang admin
-│   ├── auth/          # Trang đăng nhập, đăng ký
-│   ├── home/          # Trang chủ
-│   ├── job/           # Trang công việc
-│   └── company/       # Trang công ty
+├── components/          # React components
+│   ├── admin/          # Components for the admin panel
+│   │   ├── company/    # Company management
+│   │   ├── job/        # Job management
+│   │   ├── user/       # User management
+│   │   ├── resume/     # Resume management
+│   │   ├── role/       # Role management
+│   │   └── permission/ # Permission management
+│   ├── client/         # Components for the client side
+│   │   ├── card/       # Job and company cards
+│   │   ├── data-table/ # Data tables
+│   │   └── modal/      # Application and account management modals
+│   └── share/          # Shared components
+├── config/             # Configuration (API, permissions)
+│   ├── api.ts         # API call functions
+│   └── permissions.ts # Permission definitions
+├── pages/              # Pages
+│   ├── admin/         # Admin pages
+│   ├── auth/          # Login/register pages
+│   ├── home/          # Home page
+│   ├── job/           # Job pages
+│   └── company/       # Company pages
 ├── redux/              # State management (Redux Toolkit)
 │   ├── slice/         # Redux slices
 │   ├── hooks.ts       # Custom hooks
@@ -224,13 +224,13 @@ src/
 │   ├── client.module.scss
 │   └── reset.scss
 └── types/              # TypeScript definitions
-    ├── backend.d.ts   # Interfaces từ backend
-    └── file.d.ts      # Interfaces cho file upload
+    ├── backend.d.ts   # Interfaces from the backend
+    └── file.d.ts      # Interfaces for file uploads
 ```
 
 ---
 
-## 🔧 Công Nghệ Sử Dụng
+## 🔧 Tech Stack
 
 - **Frontend Framework**: React 18.2.0
 - **Language**: TypeScript 5.3.3
@@ -247,44 +247,25 @@ src/
 
 ## 📱 Responsive Design
 
-- ✅ Hỗ trợ đầy đủ trên desktop
-- ✅ Tối ưu hóa cho tablet
-- ✅ Thân thiện với mobile
+- ✅ Fully supported on desktop
+- ✅ Optimized for tablet
+- ✅ Mobile-friendly
 
 ---
 
-## 🔐 Bảo Mật
+## 🔐 Security
 
-- **Token-based Authentication**: JWT access token được lưu trong localStorage
-- **Role-based Access Control (RBAC)**: Kiểm soát quyền hạn dựa trên vai trò
-- **Protected Routes**: Các route admin được bảo vệ bằng ProtectedRoute
-- **Permission Checking**: Kiểm tra chi tiết quyền từng API
-
----
-
-## 📞 Hỗ Trợ & Liên Hệ
-
-- **Tác Giả**: Hỏi Dân IT với Eric
-- **Mô Tả**: Frontend cho series Nest.JS trên YouTube Hỏi Dân IT
-- **Repository**: Tham khảo repository gốc
+- **Token-based Authentication**: JWT access token stored in localStorage
+- **Role-based Access Control (RBAC)**: Access control based on user role
+- **Protected Routes**: Admin routes are protected via ProtectedRoute
+- **Permission Checking**: Detailed permission checks per API
 
 ---
 
-## 📝 Ghi Chú
+## 📝 Notes
 
-- Backend API cần chạy trên `https://react-learning-lime.vercel.app/` (có thể thay đổi trong `.env`)
-- Mỗi lần sửa file, ứng dụng sẽ tự reload (Hot Module Replacement)
-- Token được lưu trong `localStorage`, sẽ mất khi xóa dữ liệu trình duyệt
-
----
-
-## 🎓 Để Tìm Hiểu Thêm
-
-- **Ant Design Docs**: https://ant.design/
-- **React Router Docs**: https://reactrouter.com/
-- **Redux Toolkit Docs**: https://redux-toolkit.js.org/
-- **Vite Docs**: https://vitejs.dev/
+- The backend API needs to run on `https://react-learning-lime.vercel.app/` (can be changed in `.env`)
+- The app automatically reloads on file changes (Hot Module Replacement)
+- The token is stored in `localStorage` and will be lost when browser data is cleared
 
 ---
-
-**Happy Coding! 🚀**
